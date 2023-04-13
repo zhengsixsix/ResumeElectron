@@ -3,14 +3,14 @@ import RootLess from './index.less';
 import Logo from '../../../../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
 function Root() {
+  const Navigate = useNavigate();
   const HomeList: string[] = ['介绍', '简历', '源码'];
+  const linkRouterMap: Record<string, () => void> = {
+    简历: () => Navigate('/resume'),
+    介绍: () => Navigate('/'),
+    源码: () => window.open('https://github.com/zhengsixsix/ResumeElectron'),
+  };
   function onRouterToLink(text: string) {
-    const linkRouterMap: Record<string, () => void> = {
-      简历: () => console.log('跳转到简历页面'),
-      介绍: () => console.log('进入到 github'),
-      源码: () => console.log('sdsdsd'),
-    };
-
     const linkRouter = linkRouterMap[text];
     if (linkRouter) {
       linkRouter();

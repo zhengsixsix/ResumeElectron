@@ -9,5 +9,7 @@ function App() {
     </React.StrictMode>
   );
 }
-const Dom = document.getElementById('root');
-Dom?.parentNode && ReactDOM.createRoot(Dom).render(<App />);
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  ReactDOM.createRoot(rootElement).render(<App />);
+}
