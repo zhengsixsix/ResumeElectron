@@ -1,0 +1,46 @@
+.root {
+    background-color: #27292d;
+    height: 100vh;
+    color: #fff;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform: translateY(50%);
+
+        img {
+            width: 128px;
+        }
+
+        .title {
+            margin-top: 20px;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .tips {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+
+        .action {
+            display: flex;
+            margin-top: 20px;
+            font-size: 24px;
+
+            .item {
+                margin-right: 20px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .footer {
+        position: fixed;
+        bottom: 15px;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+}
