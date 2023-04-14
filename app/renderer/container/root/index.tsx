@@ -1,19 +1,19 @@
 import React from 'react';
 import RootLess from './index.less';
-import Logo from '../../../../assets/logo.png';
+import Logo from '@assets/logo.png';
 import { useNavigate } from 'react-router-dom';
+import { ROUTER_ENTRY } from '@common/constants/router';
+import { isHttpOrHttpsUrl } from '@common/utils/router';
+const { ipcRenderer } = window.require('electron');
+import Item from '@common/types/routerItm';
+
 function Root() {
   const Navigate = useNavigate();
-  const HomeList: string[] = ['介绍', '简历', '源码'];
-  const linkRouterMap: Record<string, () => void> = {
-    简历: () => Navigate('/resume'),
-    介绍: () => Navigate('/'),
-    源码: () => window.open('https://github.com/zhengsixsix/ResumeElectron'),
-  };
-  function onRouterToLink(text: string) {
-    const linkRouter = linkRouterMap[text];
-    if (linkRouter) {
-      linkRouter();
+  function onRouterToLink(route: Item) {
+    if (isHttpOrHttpsUrl(route.url)) {
+      ipcRenderer.invoke('jumpFun', route.url);
+    } else {
+      Navigate(route.url);
     }
   }
 
@@ -25,16 +25,16 @@ function Root() {
           <div className={RootLess.title}>阿尔法狗弟</div>
           <div className={RootLess.tips}>一个模板简历制作平台，让你的简历更加出众 ~</div>
           <div className={RootLess.action}>
-            {HomeList.map((text, index) => {
+            {ROUTER_ENTRY.map((router: Item) => {
               return (
                 <div
                   className={RootLess.item}
-                  key={index}
+                  key={router.key}
                   onClick={() => {
-                    onRouterToLink(text);
+                    onRouterToLink(router);
                   }}
                 >
-                  {text}
+                  {router.text}
                 </div>
               );
             })}
