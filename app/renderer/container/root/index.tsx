@@ -4,10 +4,14 @@ import Logo from '@assets/logo.png';
 import { useNavigate } from 'react-router-dom';
 import { ROUTER_ENTRY } from '@common/constants/router';
 import { isHttpOrHttpsUrl } from '@common/utils/router';
+import { useSelector } from 'react-redux';
 const { ipcRenderer } = window.require('electron');
 import Item from '@common/types/routerItm';
 
 function Root() {
+  const appName = useSelector((state: any) => state.globalModel.appName);
+  console.log(appName);
+  
   const Navigate = useNavigate();
   function onRouterToLink(route: Item) {
     if (isHttpOrHttpsUrl(route.url)) {

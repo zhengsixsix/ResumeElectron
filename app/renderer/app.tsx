@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Router from './router';
+import { Provider } from 'react-redux';
+import store from './store';
 
 function App() {
   return (
     <React.StrictMode>
-      <Router />
+      <Provider store={store}>
+        <Router />
+      </Provider>
     </React.StrictMode>
   );
 }
