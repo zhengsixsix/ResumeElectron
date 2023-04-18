@@ -9,7 +9,7 @@ const initialState: GlobalState = {
 };
 
 const mySlice = createSlice({
-    name: 'mySlice',
+    name: 'globalSlice',
     initialState,
     reducers: {
         // ...添加 reducers...

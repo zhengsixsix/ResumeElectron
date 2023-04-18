@@ -2,8 +2,9 @@ import React from 'react';
 import ResumeLess from './index.less';
 import fileAction from '@src/common/utils/file';
 import { getAppPath } from '@src/common/utils/appPath';
-import Button from '@src/common/components/MyButton';
-import Input from '@src/common/components/MyInput';
+import ResumeAction from './ResumeAction';
+import ResumeContent from './ResumeContent';
+import ResumeToolbar from './ResumeToolbar';
 const getPath = async () => {
   const rootPath = await getAppPath();
   fileAction.read(`${rootPath}app/renderer/container/resume/index.tsx`).then((data) => {
@@ -13,11 +14,16 @@ const getPath = async () => {
 function Resume() {
   getPath();
   return (
-    <div>
-      <Button>设置</Button>
-      <Input />
-      <Input type="textarea" placeholder="你有什么特长爱好呢"></Input>
-      这是简历页面
+    <div className={ResumeLess.container}>
+      <header className={ResumeLess.header}>
+        <ResumeAction />
+      </header>
+      <main className={ResumeLess.main}>
+        <ResumeContent />
+      </main>
+      <aside className={ResumeLess.aside}>
+        <ResumeToolbar />
+      </aside>
     </div>
   );
 }
