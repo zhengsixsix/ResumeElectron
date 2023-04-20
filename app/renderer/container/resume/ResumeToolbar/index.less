@@ -48,22 +48,12 @@
                 position: relative;
                 user-select: none;
 
-                &:hover {
-                    .info {
-
-                        .action {
-                            display: inline-flex;
-                        }
-                    }
-                }
-
                 .info {
                     display: flex;
 
                     .icon {
                         width: 16px;
                         height: 16px;
-                        background: url('../../../../../assets/icon/work.png') no-repeat;
                         background-size: cover;
                         margin-top: 2px;
                         margin-right: 8px;
@@ -103,32 +93,27 @@
 
                     .action {
                         position: absolute;
-                        right: 0;
-                        top: 18px;
+                        right: 5px;
+                        top: 5px;
                         width: 40px;
-                        display: none;
+                        display: block;
                         height: 20px;
 
                         .edit {
                             width: 16px;
                             height: 16px;
-                            background: url('../../../../../assets/icon/edit.png') no-repeat;
-                            background-size: cover;
                             margin-right: 8px;
                         }
 
                         .delete {
                             width: 16px;
                             height: 16px;
-                            background: url('../../../../../assets/icon/delete.png') no-repeat;
-                            background-size: cover;
                         }
 
                         .add {
                             width: 16px;
                             height: 16px;
-                            background: url('../../../../../assets/icon/add.png') no-repeat;
-                            background-size: cover;
+                            float: right;
                         }
                     }
                 }

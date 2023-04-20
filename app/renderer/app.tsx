@@ -6,11 +6,9 @@ import store from './store';
 
 function App() {
   return (
-    <React.StrictMode>
       <Provider store={store}>
         <Router />
       </Provider>
-    </React.StrictMode>
   );
 }
 const rootElement = document.getElementById('root');
